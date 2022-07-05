@@ -386,10 +386,14 @@ blecent_gap_event(struct ble_gap_event *event, void *arg)
 
         /* An advertisment report was received during GAP discovery. */
         print_adv_fields(&fields);
-        if(fields.name!=NULL){
-            if(strlen((const char *)fields.name)<20){
-                ESP_LOGE("fuck","%s",fields.name);
-            }
+        char fuck[30];
+            memcpy(fuck,fields.name,fields.name_len);
+            fuck[fields.name_len]=0;
+
+        if(fields.name_len>0){
+
+                ESP_LOGE("fuck","%s  %d",fuck,event->disc.rssi);
+
 
         }
 
