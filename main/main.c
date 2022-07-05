@@ -392,7 +392,14 @@ blecent_gap_event(struct ble_gap_event *event, void *arg)
 
         if(fields.name_len>0){
 
-                ESP_LOGE("fuck","%s  %d",fuck,event->disc.rssi);
+                ESP_LOGE("fuck","%s  %d  %d  %d   %d  %d  %d  %d",fuck,event->disc.rssi,
+                         event->disc.addr.val[0],
+                         event->disc.addr.val[1],
+                         event->disc.addr.val[2],
+                         event->disc.addr.val[3],
+                         event->disc.addr.val[4],
+                         event->disc.addr.val[5]
+                );
 
 
         }
